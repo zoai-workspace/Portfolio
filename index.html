@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>윤생 — 경영기획 · 재무기획 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;
+    --paper:#F7F7F8;
+    --paper-alt:#EFF0F2;
+    --paper-line:#E1E3E6;
+    --brass:#A9793F;
+    --slate:#5C6470;
+    --serif:'Newsreader', serif;
+    --sans:'Inter', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+    --sidebar-w:260px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ul{list-style:none;}
+
+  /* ==========================================================
+     LAYOUT: fixed left sidebar + scrollable content
+     ========================================================== */
+  .app{display:flex; min-height:100vh;}
+
+  /* ---- Sidebar ---- */
+  .sidebar{
+    width:var(--sidebar-w);
+    flex-shrink:0;
+    position:fixed;
+    top:0; left:0; bottom:0;
+    padding:40px 28px;
+    border-right:1px solid var(--paper-line);
+    display:flex;
+    flex-direction:column;
+  }
+  .sidebar .brand{
+    font-family:var(--serif); font-weight:500; font-size:22px; margin-bottom:2px;
+  }
+  .sidebar .brand-sub{
+    font-family:var(--mono); font-size:11px; color:var(--brass);
+    letter-spacing:0.06em; text-transform:uppercase; margin-bottom:36px;
+  }
+  .sidebar nav{margin-bottom:auto;}
+  .sidebar nav a{
+    display:flex; align-items:center; gap:10px;
+    font-size:14px; color:var(--slate); text-decoration:none;
+    padding:9px 0; border-left:2px solid transparent; padding-left:12px;
+    margin-left:-12px; transition:color .15s, border-color .15s;
+  }
+  .sidebar nav a .idx{font-family:var(--mono); font-size:11px; color:var(--paper-line);}
+  .sidebar nav a:hover{color:var(--ink);}
+  .sidebar nav a.active{color:var(--ink); border-left-color:var(--brass); font-weight:500;}
+  .sidebar nav a.active .idx{color:var(--brass);}
+
+  .sidebar .contact{
+    font-family:var(--mono); font-size:12px; color:var(--slate);
+    display:flex; flex-direction:column; gap:8px; margin-top:32px;
+  }
+  .sidebar .contact a{text-decoration:none; border-bottom:1px solid transparent;}
+  .sidebar .contact a:hover{color:var(--brass); border-color:var(--brass);}
+
+  /* ---- Main content ---- */
+  .content{
+    margin-left:var(--sidebar-w);
+    width:calc(100% - var(--sidebar-w));
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 40px;}
+
+  @media (max-width: 880px){
+    .sidebar{
+      position:static; width:100%; height:auto; border-right:none;
+      border-bottom:1px solid var(--paper-line);
+      flex-direction:row; align-items:center; justify-content:space-between;
+      padding:18px 24px;
+    }
+    .sidebar .brand-block{display:flex; flex-direction:column;}
+    .sidebar .brand-sub{margin-bottom:0;}
+    .sidebar nav{
+      display:flex; gap:4px; margin-bottom:0; overflow-x:auto;
+    }
+    .sidebar nav a{
+      padding:6px 10px; border-left:none; border-bottom:2px solid transparent; margin-left:0;
+      white-space:nowrap;
+    }
+    .sidebar nav a.active{border-left-color:transparent; border-bottom-color:var(--brass);}
+    .sidebar nav a .idx{display:none;}
+    .sidebar .contact{display:none;}
+    .content{margin-left:0; width:100%;}
+    .wrap{padding:0 24px;}
+  }
+
+  /* ==========================================================
+     SECTIONS
+     ========================================================== */
+  section{padding:88px 0; border-bottom:1px solid var(--paper-line); scroll-margin-top:24px;}
+  section:last-of-type{border-bottom:none;}
+  section.alt{background:var(--paper-alt);}
+
+  h2.section-title{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:8px;
+  }
+  h3.section-heading{
+    font-family:var(--serif); font-weight:500; font-size:28px; margin-bottom:36px;
+  }
+
+  /* ---- Hero ---- */
+  .hero{padding-top:64px;}
+  .hero h1{
+    font-family:var(--serif); font-weight:500; font-size:clamp(34px, 5vw, 50px);
+    line-height:1.15; letter-spacing:-0.01em; max-width:12ch;
+  }
+  .hero p.role{
+    font-size:17px; color:var(--slate); margin-top:20px; max-width:52ch;
+  }
+  .hero p.role strong{color:var(--ink); font-weight:600;}
+
+  /* ---- Ledger stats (signature element) ---- */
+  .ledger{border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);}
+  .ledger-row{
+    display:grid; grid-template-columns:150px 1fr auto;
+    gap:20px; align-items:baseline;
+    padding:20px 0; border-bottom:1px dashed var(--paper-line);
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-row .num{
+    font-family:var(--mono); font-size:clamp(22px,3vw,28px); font-weight:500;
+    color:var(--brass); white-space:nowrap;
+  }
+  .ledger-row .desc{font-size:14px; color:var(--slate);}
+  .ledger-row .tag{
+    font-family:var(--mono); font-size:11px; color:var(--slate);
+    text-align:right; text-transform:uppercase; letter-spacing:0.06em;
+  }
+
+  /* ---- Experience ---- */
+  .job{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--paper-line);}
+  .job:last-child{border-bottom:1px solid var(--paper-line);}
+  .job .meta{font-family:var(--mono); font-size:12px; color:var(--slate); line-height:1.7;}
+  .job .meta .period{color:var(--ink); font-weight:500;}
+  .job h4{font-family:var(--serif); font-size:20px; font-weight:500; margin-bottom:4px;}
+  .job .title-line{font-size:13px; color:var(--brass); margin-bottom:14px; font-family:var(--mono);}
+  .job ul li{position:relative; padding-left:16px; margin-bottom:8px; font-size:14.5px; color:#33394A;}
+  .job ul li::before{content:"—"; position:absolute; left:0; color:var(--slate);}
+  .job ul li strong{color:var(--brass); font-weight:600;}
+
+  /* ---- Portfolio / Projects ----
+     COPY ONE .proj-card BLOCK PER NEW PROJECT. Everything you need to
+     edit is inside that single <article>. Delete the placeholder
+     projects once you add real ones.
+  */
+  .proj-grid{display:flex; flex-direction:column; gap:0;}
+  .proj-card{
+    display:grid; grid-template-columns:220px 1fr; gap:28px;
+    padding:32px 0; border-top:1px solid var(--paper-line);
+  }
+  .proj-card:last-child{border-bottom:1px solid var(--paper-line);}
+  .proj-card .thumb{
+    width:100%; aspect-ratio:4/3; border-radius:2px;
+    background:linear-gradient(135deg, #E1E3E6, #EFF0F2);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:11px; color:var(--slate);
+    border:1px solid var(--paper-line);
+  }
+  .proj-card .thumb img{width:100%; height:100%; object-fit:cover; border-radius:2px;}
+  .proj-card .body .proj-tag{
+    font-family:var(--mono); font-size:11px; color:var(--brass);
+    text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;
+  }
+  .proj-card h4{font-family:var(--serif); font-size:21px; font-weight:500; margin-bottom:10px;}
+  .proj-card p{font-size:14.5px; color:#33394A; margin-bottom:14px;}
+  .proj-card .proj-links{display:flex; gap:16px; font-family:var(--mono); font-size:12px;}
+  .proj-card .proj-links a{
+    text-decoration:none; color:var(--ink); border-bottom:1px solid var(--brass);
+  }
+  .proj-card .proj-links a:hover{color:var(--brass);}
+  .proj-card.placeholder{opacity:0.55;}
+  .proj-card.placeholder .thumb{font-style:italic;}
+
+  @media (max-width: 620px){
+    .job{grid-template-columns:1fr;}
+    .job .meta{display:flex; gap:12px; flex-wrap:wrap;}
+    .ledger-row{grid-template-columns:auto 1fr; row-gap:6px;}
+    .ledger-row .tag{grid-column:1 / -1; text-align:left;}
+    .proj-card{grid-template-columns:1fr;}
+    .proj-card .thumb{aspect-ratio:16/9;}
+  }
+
+  /* ---- Skills ---- */
+  .skill-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:28px;}
+  .skill-group .label{
+    font-family:var(--mono); font-size:11px; color:var(--slate); text-transform:uppercase;
+    letter-spacing:0.06em; margin-bottom:10px;
+  }
+  .skill-group .items{font-size:14.5px; line-height:1.9;}
+
+  /* ---- Education ---- */
+  .edu-item{display:flex; justify-content:space-between; gap:16px; padding:16px 0; border-top:1px solid var(--paper-line); font-size:14.5px;}
+  .edu-item:last-child{border-bottom:1px solid var(--paper-line);}
+  .edu-item .school{font-weight:600;}
+  .edu-item .loc{color:var(--slate); font-size:13px;}
+  .edu-item .period{font-family:var(--mono); font-size:12px; color:var(--slate); white-space:nowrap;}
+
+  /* ---- Footer ---- */
+  footer{padding:48px 0; text-align:center;}
+  footer p{font-family:var(--mono); font-size:12px; color:var(--slate);}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand-block">
+      <div class="brand">윤생</div>
+      <div class="brand-sub">Management &amp; Financial Planning</div>
+    </div>
+    <nav id="sidenav">
+      <a href="#home"><span class="idx">00</span> Home</a>
+      <a href="#experience"><span class="idx">01</span> Experience</a>
+      <a href="#portfolio"><span class="idx">02</span> Portfolio</a>
+      <a href="#skills"><span class="idx">03</span> Skills</a>
+      <a href="#education"><span class="idx">04</span> Education</a>
+      <a href="#contact"><span class="idx">05</span> Contact</a>
+    </nav>
+    <div class="contact">
+      <a href="mailto:you@example.com">you@example.com</a>
+      <a href="https://github.com/yourhandle">github.com/yourhandle</a>
+      <a href="https://linkedin.com/in/yourhandle">linkedin.com/in/yourhandle</a>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <div class="content">
+
+    <section class="hero" id="home">
+      <div class="wrap">
+        <h1>숫자 뒤의 의사결정을 설계합니다</h1>
+        <p class="role">
+          경영기획 · 재무기획 실무자. <strong>IPO 준비, 재무 KPI 설계, 데이터 기반 업무 자동화</strong>를
+          통해 88억원 투자 유치와 M&amp;A 실행에 기여했으며, 현재는 AJ네트웍스 재무기획실에서
+          DuPont Analysis 기반 ROIC·ROE 지표 도입을 주도하고 있습니다.
+        </p>
+      </div>
+
+      <div class="ledger" style="margin-top:56px;">
+        <div class="wrap">
+          <div class="ledger-row">
+            <div class="num">₩8.8B</div>
+            <div class="desc">중/장기 성장 전략 보고서 작성을 통한 투자 유치</div>
+            <div class="tag">Fundraising</div>
+          </div>
+          <div class="ledger-row">
+            <div class="num">8h → 2h</div>
+            <div class="desc">엑셀·VBA 기반 자동계산 로직 설계로 영업실적회의 준비시간 단축</div>
+            <div class="tag">Automation</div>
+          </div>
+          <div class="ledger-row">
+            <div class="num">75%</div>
+            <div class="desc">Python &amp; Power Query 기반 데이터 파이프라인으로 업무 시간 절감</div>
+            <div class="tag">Data</div>
+          </div>
+          <div class="ledger-row">
+            <div class="num">2 deals</div>
+            <div class="desc">M&amp;A 대상 기업 발굴·실사 지원, 영상제작·번역 영역 확대</div>
+            <div class="tag">M&amp;A</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <h2 class="section-title">Experience</h2>
+        <h3 class="section-heading">경력</h3>
+
+        <div class="job">
+          <div class="meta">
+            <div class="period">2026.02 — 현재</div>
+            <div>대리 · 경영관리팀</div>
+          </div>
+          <div>
+            <h4>AJ네트웍스</h4>
+            <div class="title-line">재무기획실 · CFO 지원 업무</div>
+            <ul>
+              <li>글로벌 자산렌탈 기업 벤치마킹 및 DuPont Analysis 기반 <strong>ROIC·ROE 신규 재무지표</strong> 도입 검토</li>
+              <li>사업부 및 자회사 PL+BS 통합 보고 체계 재구성, 실적회의 자료 작성</li>
+              <li>투자심의위원회 운영 지원 및 내부거래위원회 규정 개정 대응</li>
+              <li>엑셀 함수·VBA 기반 자동계산 로직 및 표준 보고 템플릿 설계</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="meta">
+            <div class="period">2021.05 — 2026.02</div>
+            <div>사원 · 경영기획팀</div>
+          </div>
+          <div>
+            <h4>큐로드</h4>
+            <div class="title-line">모바일게임 아웃소싱 기업 · 대표 직속 경영기획</div>
+            <ul>
+              <li>투자 유치를 위한 성장 전략 보고서 작성, <strong>88억원 규모 투자 유치</strong></li>
+              <li>IPO 준비 전 과정(DCF 기업가치평가, 외부 감사 대응, 공시용 사업보고서) 수행</li>
+              <li>M&amp;A 대상 기업 발굴 및 인수 지원을 통한 서비스 영역 확대</li>
+              <li>Power BI·Python·SQL 기반 분석 시스템 모델링 및 대시보드 시각화</li>
+              <li>해외 투자자 커뮤니케이션 및 글로벌 파트너십 협상 지원</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="meta">
+            <div class="period">2017.10 — 2019.03</div>
+            <div>팀리더</div>
+          </div>
+          <div>
+            <h4>Shangri-La Hotel Sydney</h4>
+            <div class="title-line">글로벌 체인 호텔</div>
+            <ul>
+              <li>직원 교육 및 업무 분배, 행사 준비/진행, 서비스 flow 및 재고 관리</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PORTFOLIO — add real work here.
+         To add a project: copy one <article class="proj-card"> block,
+         paste it above the placeholders, and edit:
+           - .proj-tag   → category label (e.g. FINANCIAL MODEL, DASHBOARD)
+           - .thumb      → replace text with <img src="..." alt="..."> if you have an image
+           - h4          → project title
+           - p           → 2–3 line description
+           - .proj-links → live link / repo link / PDF link (remove <a> tags you don't need)
+         Remove class="placeholder" once it's a real project.
+         ============================================================ -->
+    <section class="alt" id="portfolio">
+      <div class="wrap">
+        <h2 class="section-title">Portfolio</h2>
+        <h3 class="section-heading">프로젝트</h3>
+
+        <div class="proj-grid">
+
+          <!-- ▼▼▼ TEMPLATE — duplicate this block for each real project ▼▼▼ -->
+          <article class="proj-card placeholder">
+            <div class="thumb">이미지 / 스크린샷 자리</div>
+            <div class="body">
+              <div class="proj-tag">Category</div>
+              <h4>프로젝트 제목</h4>
+              <p>
+                무엇을 위해 했고, 어떤 방법을 썼고, 어떤 결과를 냈는지 2~3문장으로.
+                예: ROIC·ROE 벤치마킹 모델을 5개년 시뮬레이션으로 구축하고
+                DuPont 분해를 통해 사업부별 개선 포인트를 도출.
+              </p>
+              <div class="proj-links">
+                <a href="#">자료 보기 →</a>
+              </div>
+            </div>
+          </article>
+          <!-- ▲▲▲ end template ▲▲▲ -->
+
+          <article class="proj-card placeholder">
+            <div class="thumb">이미지 / 스크린샷 자리</div>
+            <div class="body">
+              <div class="proj-tag">Category</div>
+              <h4>프로젝트 제목</h4>
+              <p>두 번째 프로젝트 설명. 위 블록을 복사해서 계속 추가하세요.</p>
+              <div class="proj-links">
+                <a href="#">자료 보기 →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <h2 class="section-title">Skills</h2>
+        <h3 class="section-heading">역량</h3>
+        <div class="skill-grid">
+          <div class="skill-group">
+            <div class="label">Finance &amp; Strategy</div>
+            <div class="items">IPO 실무 · DCF 기업가치평가 · DuPont Analysis · 재무 KPI 설계 · M&amp;A 실사 지원</div>
+          </div>
+          <div class="skill-group">
+            <div class="label">Data &amp; Automation</div>
+            <div class="items">Python (Pandas) · SQL · Power BI / Power Query · Excel VBA · Web Crawling</div>
+          </div>
+          <div class="skill-group">
+            <div class="label">Reporting &amp; Governance</div>
+            <div class="items">C-Level 보고서 작성 · 이사회/투자자 IR · 내부거래위원회 대응 · 공시 업무</div>
+          </div>
+          <div class="skill-group">
+            <div class="label">Global</div>
+            <div class="items">영어 비즈니스 커뮤니케이션 · 해외 투자자 대응 · 계약/제안서 번역</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="education">
+      <div class="wrap">
+        <h2 class="section-title">Education &amp; Certificates</h2>
+        <h3 class="section-heading">학력 및 자격증</h3>
+
+        <div class="edu-item">
+          <div>
+            <div class="school">International College of Management Sydney</div>
+            <div class="loc">Bachelor of Business Management · 호주</div>
+          </div>
+          <div class="period">2016.05 – 2018.11</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="school">Mayfield Hotel School</div>
+            <div class="loc">호텔관광경영 · 한국</div>
+          </div>
+          <div class="period">2012.03 – 2016.02</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="school">전산회계 1급 · 전산세무 2급</div>
+            <div class="loc">한국세무사회</div>
+          </div>
+          <div class="period">2020.09</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="school">컴퓨터활용능력 2급</div>
+            <div class="loc">대한상공회의소</div>
+          </div>
+          <div class="period">2020.11</div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <p>© 2026 · Built for GitHub Pages · you@example.com</p>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  // Highlight the sidebar link matching the section currently in view.
+  const links = document.querySelectorAll('#sidenav a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+
+  function setActive(){
+    let current = sections[0];
+    const y = window.scrollY + 120;
+    sections.forEach(sec => { if (sec && sec.offsetTop <= y) current = sec; });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', setActive);
+  window.addEventListener('load', setActive);
+</script>
+
+</body>
+</html>
