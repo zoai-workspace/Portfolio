@@ -81,6 +81,7 @@
   .wrap{max-width:760px; margin:0 auto; padding:0 40px;}
 
   @media (max-width: 880px){
+    .app{flex-direction:column;}
     .sidebar{
       position:static; width:100%; height:auto; border-right:none;
       border-bottom:1px solid var(--paper-line);
@@ -218,6 +219,12 @@
   .edu-item:last-child{border-bottom:1px solid var(--paper-line);}
   .edu-subhead + .edu-item{border-top:none;}
   .edu-item:has(+ .edu-subhead){border-bottom:1px solid var(--paper-line);}
+  .edu-item.detailed{align-items:flex-start;}
+  .edu-item.detailed .period{padding-top:2px;}
+  .edu-detail{margin-top:8px;}
+  .edu-detail li{position:relative; padding-left:16px; margin-bottom:6px; font-size:13.5px; color:#33394A;}
+  .edu-detail li:last-child{margin-bottom:0;}
+  .edu-detail li::before{content:"—"; position:absolute; left:0; color:var(--slate);}
   .edu-item .school{font-weight:600;}
   .edu-item .loc{color:var(--slate); font-size:13px;}
   .edu-item .period{font-family:var(--mono); font-size:12px; color:var(--slate); white-space:nowrap;}
@@ -423,8 +430,8 @@
 
     <section class="alt" id="education">
       <div class="wrap">
-        <h2 class="section-title">Education &amp; Certificates</h2>
-        <h3 class="section-heading">학력 및 자격증</h3>
+        <h2 class="section-title">Education, Certificates &amp; Activities</h2>
+        <h3 class="section-heading">학력 · 자격증 · 활동</h3>
 
         <div class="edu-subhead">학력</div>
         <div class="edu-item">
@@ -456,6 +463,28 @@
             <div class="loc">대한상공회의소</div>
           </div>
           <div class="period">2020.11</div>
+        </div>
+
+        <div class="edu-subhead">활동</div>
+        <div class="edu-item detailed">
+          <div>
+            <div class="school">NCS 빅데이터 전문가_자바&amp;파이썬 개발 교육과정</div>
+            <ul class="edu-detail">
+              <li>자바, JAVAFX 활용 UI 구축, MySQL 데이터베이스 연동, Spring 웹 서버 구축</li>
+              <li>파이썬(Pandas, matplotlib 등) 빅데이터 크롤링, 전처리, 데이터 수집·분석·시각화</li>
+            </ul>
+          </div>
+          <div class="period">2020.10 – 2021.03</div>
+        </div>
+        <div class="edu-item detailed">
+          <div>
+            <div class="school">대학교 한인회 Korean Students Association 회장</div>
+            <ul class="edu-detail">
+              <li>Asian Students Association 행사 활동</li>
+              <li>한국 유학생 대상 행사 개최 및 학교 안내</li>
+            </ul>
+          </div>
+          <div class="period">2016.11 – 2018.11</div>
         </div>
       </div>
     </section>
