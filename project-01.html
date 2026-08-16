@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DuPont 기반 ROIC·ROE 벤치마킹 모델 — 윤생 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;
+    --paper:#F7F7F8;
+    --paper-alt:#EFF0F2;
+    --paper-line:#E1E3E6;
+    --brass:#A9793F;
+    --slate:#5C6470;
+    --serif:'Newsreader', serif;
+    --sans:'Inter', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 40px;}
+
+  .back-bar{padding:28px 0; border-bottom:1px solid var(--paper-line);}
+  .back-bar a{
+    font-family:var(--mono); font-size:12px; color:var(--slate);
+    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  .back-bar a:hover{color:var(--brass);}
+
+  header.detail-hero{padding:64px 0 40px;}
+  .proj-tag{
+    font-family:var(--mono); font-size:11px; color:var(--brass);
+    text-transform:uppercase; letter-spacing:0.06em; margin-bottom:12px;
+  }
+  h1{font-family:var(--serif); font-weight:500; font-size:clamp(28px,4vw,38px); line-height:1.25; max-width:20ch;}
+  .meta-row{
+    display:flex; gap:24px; flex-wrap:wrap; margin-top:24px;
+    font-family:var(--mono); font-size:12px; color:var(--slate);
+  }
+  .meta-row .item .k{text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+  .meta-row .item .v{color:var(--ink); font-size:13px;}
+
+  .thumb-hero{
+    width:100%; aspect-ratio:16/9; margin-top:40px; border-radius:2px;
+    background:linear-gradient(135deg, #E1E3E6, #EFF0F2);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:12px; color:var(--slate);
+    border:1px solid var(--paper-line);
+  }
+
+  section.body-section{padding:56px 0; border-top:1px solid var(--paper-line);}
+  section.body-section h2{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:16px;
+  }
+  section.body-section p{font-size:15px; color:#33394A; margin-bottom:16px; max-width:64ch;}
+  section.body-section ul{list-style:none; margin-top:8px;}
+  section.body-section ul li{
+    position:relative; padding-left:16px; margin-bottom:10px; font-size:14.5px; color:#33394A;
+  }
+  section.body-section ul li::before{content:"—"; position:absolute; left:0; color:var(--slate);}
+  section.body-section ul li strong{color:var(--brass); font-weight:600;}
+
+  .result-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:20px;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:24px 0; margin-top:8px;
+  }
+  .result-grid .num{font-family:var(--mono); font-size:24px; font-weight:500; color:var(--brass);}
+  .result-grid .desc{font-size:13px; color:var(--slate); margin-top:6px;}
+
+  footer{padding:48px 0; text-align:center;}
+  footer p{font-family:var(--mono); font-size:12px; color:var(--slate);}
+
+  @media (max-width: 620px){
+    .wrap{padding:0 24px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <div class="wrap">
+    <a href="index.html#portfolio">&larr; 포트폴리오로 돌아가기</a>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="wrap">
+    <div class="proj-tag">Financial Modeling</div>
+    <h1>DuPont 분해 기반 ROIC·ROE 벤치마킹 모델</h1>
+    <div class="meta-row">
+      <div class="item"><div class="k">Role</div><div class="v">재무기획실 · 모델 설계 및 분석</div></div>
+      <div class="item"><div class="k">Period</div><div class="v">2026.02 — 진행중</div></div>
+      <div class="item"><div class="k">Tools</div><div class="v">Excel · Power BI · Python</div></div>
+    </div>
+    <div class="thumb-hero">이미지 / 스크린샷 자리 (샘플 페이지)</div>
+  </div>
+</header>
+
+<section class="body-section">
+  <div class="wrap">
+    <h2>Overview</h2>
+    <p>
+      글로벌 자산렌탈 기업을 벤치마킹하여 ROIC·ROE를 DuPont Analysis로 분해하고,
+      5개년 시뮬레이션을 통해 사업부별 수익성·자본효율성 개선 포인트를 도출한 프로젝트입니다.
+    </p>
+  </div>
+</section>
+
+<section class="body-section alt">
+  <div class="wrap">
+    <h2>Approach</h2>
+    <ul>
+      <li>글로벌 동종업계 재무제표를 수집해 <strong>ROIC·ROE 벤치마킹 기준선</strong> 설정</li>
+      <li>DuPont Analysis로 순이익률 · 자산회전율 · 재무레버리지 요인 분해</li>
+      <li>사업부/자회사 PL+BS를 통합해 <strong>5개년 시뮬레이션 모델</strong> 구축</li>
+      <li>투자심의위원회 보고용 표준 템플릿 및 자동계산 로직 설계</li>
+    </ul>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <h2>Result</h2>
+    <div class="result-grid">
+      <div>
+        <div class="num">5yr</div>
+        <div class="desc">시뮬레이션 기간</div>
+      </div>
+      <div>
+        <div class="num">사업부 단위</div>
+        <div class="desc">개선 포인트 도출 범위</div>
+      </div>
+      <div>
+        <div class="num">표준화</div>
+        <div class="desc">보고 템플릿 및 자동계산 로직</div>
+      </div>
+    </div>
+    <p style="margin-top:24px;">
+      본 페이지는 샘플 구성입니다. 실제 자료(이미지, 보고서 발췌본 등)를 이 페이지에 채워 넣어
+      사용하시면 됩니다.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 · Built for GitHub Pages</p>
+</footer>
+
+</body>
+</html>
