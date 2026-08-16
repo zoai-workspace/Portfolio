@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E1E3E6"/>
+      <stop offset="100%" stop-color="#EFF0F2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg1)"/>
+
+  <!-- axes -->
+  <line x1="90" y1="470" x2="740" y2="470" stroke="#5C6470" stroke-width="2"/>
+  <line x1="90" y1="120" x2="90" y2="470" stroke="#5C6470" stroke-width="2"/>
+
+  <!-- ROIC bar series -->
+  <g fill="#A9793F" opacity="0.85">
+    <rect x="130" y="360" width="46" height="110"/>
+    <rect x="220" y="320" width="46" height="150"/>
+    <rect x="310" y="280" width="46" height="190"/>
+    <rect x="400" y="250" width="46" height="220"/>
+    <rect x="490" y="210" width="46" height="260"/>
+  </g>
+
+  <!-- ROE trend line -->
+  <polyline points="153,300 243,270 333,230 423,190 513,150"
+    fill="none" stroke="#1B2430" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#1B2430">
+    <circle cx="153" cy="300" r="6"/>
+    <circle cx="243" cy="270" r="6"/>
+    <circle cx="333" cy="230" r="6"/>
+    <circle cx="423" cy="190" r="6"/>
+    <circle cx="513" cy="150" r="6"/>
+  </g>
+
+  <!-- year labels -->
+  <g font-family="IBM Plex Mono, monospace" font-size="14" fill="#5C6470">
+    <text x="140" y="495">FY1</text>
+    <text x="230" y="495">FY2</text>
+    <text x="320" y="495">FY3</text>
+    <text x="410" y="495">FY4</text>
+    <text x="500" y="495">FY5</text>
+  </g>
+
+  <text x="90" y="90" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1.5" fill="#A9793F">ROIC · ROE — 5YR MODEL</text>
+  <text x="90" y="540" font-family="IBM Plex Mono, monospace" font-size="12" fill="#5C6470">SAMPLE VISUAL — NOT ACTUAL DATA</text>
+</svg>
