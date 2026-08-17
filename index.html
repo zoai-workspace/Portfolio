@@ -133,19 +133,19 @@
   /* ---- Ledger stats (signature element) ---- */
   .ledger{border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);}
   .ledger-row{
-    display:grid; grid-template-columns:150px 1fr auto;
+    display:grid; grid-template-columns:130px 1fr 130px;
     gap:20px; align-items:baseline;
     padding:20px 0; border-bottom:1px dashed var(--paper-line);
   }
   .ledger-row:last-child{border-bottom:none;}
   .ledger-row .num{
     font-family:var(--mono); font-size:clamp(22px,3vw,28px); font-weight:500;
-    color:var(--brass); white-space:nowrap;
+    color:var(--brass); white-space:nowrap; text-align:right;
   }
   .ledger-row .desc{font-size:14px; color:var(--slate);}
   .ledger-row .tag{
     font-family:var(--mono); font-size:11px; color:var(--slate);
-    text-align:right; text-transform:uppercase; letter-spacing:0.06em;
+    text-align:left; text-transform:uppercase; letter-spacing:0.06em;
   }
 
   /* ---- Experience ---- */
@@ -195,8 +195,9 @@
   @media (max-width: 620px){
     .job{grid-template-columns:1fr;}
     .job .meta{display:flex; gap:12px; flex-wrap:wrap;}
-    .ledger-row{grid-template-columns:auto 1fr; row-gap:6px;}
+    .ledger-row{grid-template-columns:1fr auto; row-gap:6px;}
     .ledger-row .tag{grid-column:1 / -1; text-align:left;}
+    .ledger-row .num{text-align:left;}
     .proj-card{grid-template-columns:1fr;}
     .proj-card .thumb{aspect-ratio:16/9;}
   }
@@ -242,7 +243,7 @@
   <aside class="sidebar">
     <div class="brand-block">
       <div class="brand">윤생</div>
-      <div class="brand-sub">Management &amp; Financial Planning</div>
+      <div class="brand-sub">Corporate Planning &amp; Management</div>
     </div>
     <nav id="sidenav">
       <a href="#home"><span class="idx">00</span> Home</a>
@@ -265,7 +266,7 @@
         <h1>숫자 뒤의 의사결정을 설계합니다</h1>
         <p class="role">
           경영기획 · 재무기획 실무자. <strong>IPO 준비, 재무 KPI 설계, 데이터 기반 업무 자동화</strong>를
-          통해 88억원 투자 유치와 M&amp;A 실행에 기여했으며, 현재는 AJ네트웍스 재무기획실에서
+          통해 투자 유치와 M&amp;A 실행에 기여했으며, 현재는 AJ네트웍스 재무기획실에서
           DuPont Analysis 기반 ROIC·ROE 지표 도입을 주도하고 있습니다.
         </p>
       </div>
@@ -273,24 +274,24 @@
       <div class="ledger" style="margin-top:56px;">
         <div class="wrap">
           <div class="ledger-row">
-            <div class="num">₩8.8B</div>
+            <div class="tag">Growth &amp; Investment</div>
             <div class="desc">중/장기 성장 전략 보고서 작성을 통한 투자 유치</div>
-            <div class="tag">Fundraising</div>
+            <div class="num">-</div>
           </div>
           <div class="ledger-row">
-            <div class="num">8h → 2h</div>
-            <div class="desc">엑셀·VBA 기반 자동계산 로직 설계로 영업실적회의 준비시간 단축</div>
-            <div class="tag">Automation</div>
-          </div>
-          <div class="ledger-row">
-            <div class="num">75%</div>
-            <div class="desc">Python &amp; Power Query 기반 데이터 파이프라인으로 업무 시간 절감</div>
             <div class="tag">Data</div>
+            <div class="desc">Python &amp; Power Query 기반 데이터 파이프라인으로 업무 시간 절감</div>
+            <div class="num">-</div>
           </div>
           <div class="ledger-row">
-            <div class="num">2 deals</div>
-            <div class="desc">M&amp;A 대상 기업 발굴·실사 지원, 영상제작·번역 영역 확대</div>
-            <div class="tag">M&amp;A</div>
+            <div class="tag">M&amp;A &amp; Expansion</div>
+            <div class="desc">M&amp;A 대상 기업 발굴 및 실사 지원, 영상제작·번역 영역 사업 확대</div>
+            <div class="num">-</div>
+          </div>
+          <div class="ledger-row">
+            <div class="tag">Automation</div>
+            <div class="desc">엑셀·VBA 기반 자동계산 로직 설계로 영업실적회의 준비시간 단축</div>
+            <div class="num">-</div>
           </div>
         </div>
       </div>
@@ -397,13 +398,13 @@
 
           <!-- ▼▼▼ TEMPLATE — duplicate this block for each real project ▼▼▼ -->
           <article class="proj-card">
-            <div class="thumb"><img src="images/project-01.svg" alt="ROIC·ROE 벤치마킹 모델 샘플 이미지"></div>
+            <div class="thumb"><img src="images/project_01_1.png" alt="DCF 기업가치평가 기반 IPO 준비 이미지"></div>
             <div class="body">
-              <div class="proj-tag">Financial Modeling</div>
-              <h4>DuPont 분해 기반 ROIC·ROE 벤치마킹 모델</h4>
+              <div class="proj-tag">Corporate Valuation</div>
+              <h4>DCF 기업가치평가 기반 IPO 준비 및 투자 유치</h4>
               <p>
-                글로벌 자산렌탈 기업을 벤치마킹하여 ROIC·ROE 벤치마킹 모델을 5개년 시뮬레이션으로 구축하고
-                DuPont 분해를 통해 사업부별 개선 포인트를 도출.
+                DCF 기업가치평가 모델을 구축하고 중/장기 성장 전략 보고서를 작성해 88억원 규모 투자 유치에 기여,
+                외부 감사 대응과 공시용 사업보고서 작성 등 IPO 준비 전 과정을 수행.
               </p>
               <div class="proj-links">
                 <a href="project-01.html">자료 보기 →</a>
@@ -413,31 +414,15 @@
           <!-- ▲▲▲ end template ▲▲▲ -->
 
           <article class="proj-card">
-            <div class="thumb"><img src="images/project-02.svg" alt="Python·Power Query 데이터 파이프라인 샘플 이미지"></div>
+            <div class="thumb"><img src="images/project_02_1.png" alt="경쟁사/고객사 실적 트렌드 대시보드 이미지"></div>
             <div class="body">
-              <div class="proj-tag">Data Automation</div>
-              <h4>Python·Power Query 기반 데이터 파이프라인 자동화</h4>
+              <div class="proj-tag">Competitive Analysis</div>
+              <h4>Performance Trend Analysis</h4>
               <p>
-                여러 시스템에 흩어진 원천 데이터를 Python(Pandas)과 Power Query로 자동 수집·가공하는
-                파이프라인을 구축하고, Power BI 대시보드로 연결해 업무 처리 시간을 75% 절감.
+                경쟁사/고객사 YoY 매출·이익 4분면 분석, Sales 포지셔닝 의사결정 지원.
               </p>
               <div class="proj-links">
                 <a href="project-02.html">자료 보기 →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="proj-card">
-            <div class="thumb"><img src="images/project_03_1.png" alt="DCF 기업가치평가 기반 IPO 준비 이미지"></div>
-            <div class="body">
-              <div class="proj-tag">Corporate Valuation</div>
-              <h4>DCF 기업가치평가 기반 IPO 준비 및 투자 유치</h4>
-              <p>
-                DCF 기업가치평가 모델을 구축하고 중/장기 성장 전략 보고서를 작성해 88억원 규모 투자 유치에 기여,
-                외부 감사 대응과 공시용 사업보고서 작성 등 IPO 준비 전 과정을 수행.
-              </p>
-              <div class="proj-links">
-                <a href="project-03.html">자료 보기 →</a>
               </div>
             </div>
           </article>

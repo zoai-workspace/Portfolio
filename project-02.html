@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python·Power Query 데이터 파이프라인 자동화 — 윤생 포트폴리오</title>
+<title>Performance Trend Analysis — 윤생 포트폴리오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -41,7 +41,7 @@
     font-family:var(--mono); font-size:11px; color:var(--brass);
     text-transform:uppercase; letter-spacing:0.06em; margin-bottom:12px;
   }
-  h1{font-family:var(--serif); font-weight:500; font-size:clamp(28px,4vw,38px); line-height:1.25; max-width:20ch;}
+  h1{font-family:var(--serif); font-weight:500; font-size:clamp(28px,4vw,38px); line-height:1.25; max-width:24ch;}
   .meta-row{
     display:flex; gap:24px; flex-wrap:wrap; margin-top:24px;
     font-family:var(--mono); font-size:12px; color:var(--slate);
@@ -49,14 +49,21 @@
   .meta-row .item .k{text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
   .meta-row .item .v{color:var(--ink); font-size:13px;}
 
+  .hero-overview{margin-top:24px;}
+  .hero-overview h2{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:10px;
+  }
+  .hero-overview p{font-size:15px; color:#33394A; max-width:64ch;}
+
   /* Add 1 or 2 <img> tags inside .thumb-gallery — with one image it fills
      the full width, with two it splits into a side-by-side pair. */
   .thumb-gallery{
     display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-    gap:16px; margin-top:40px;
+    gap:16px; margin-top:32px;
   }
   .thumb-gallery img{
-    width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px;
+    width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-radius:2px;
     border:1px solid var(--paper-line); display:block; background:var(--paper-alt);
   }
 
@@ -99,39 +106,30 @@
 
 <header class="detail-hero">
   <div class="wrap">
-    <div class="proj-tag">Data Automation</div>
-    <h1>Python·Power Query 기반 데이터 파이프라인 자동화</h1>
+    <div class="proj-tag">Competitive Analysis</div>
+    <h1>Performance Trend Analysis</h1>
     <div class="meta-row">
-      <div class="item"><div class="k">Role</div><div class="v">경영기획팀 · 데이터 분석 및 자동화</div></div>
+      <div class="item"><div class="k">Role</div><div class="v">경영기획팀 · 대표 직속 · 기업가치평가 및 IPO 실무</div></div>
       <div class="item"><div class="k">Period</div><div class="v">2021.05 — 2026.02</div></div>
-      <div class="item"><div class="k">Tools</div><div class="v">Python (Pandas) · Power Query · Power BI · SQL</div></div>
+      <div class="item"><div class="k">Tools</div><div class="v">Power BI</div></div>
+    </div>
+    <div class="hero-overview">
+      <h2>Overview</h2>
+      <p>경쟁사/고객사 실적 트렌드를 한눈에 파악할 수 있는 인터랙티브 대시보드 구축을 통해 경영진의 Sales 포지셔닝 의사결정을 지원</p>
     </div>
     <div class="thumb-gallery">
-      <img src="images/project-02.svg" alt="Python·Power Query 데이터 파이프라인 샘플 이미지">
-      <!-- 두 번째 사진이 있으면 아래처럼 <img> 한 줄만 추가하세요 -->
-      <!-- <img src="images/project-02b.svg" alt="설명"> -->
+      <img src="images/project_02_1.png" alt="경쟁사/고객사 실적 트렌드 대시보드 — 4분면 포지셔닝 매트릭스">
     </div>
   </div>
 </header>
-
-<section class="body-section">
-  <div class="wrap">
-    <h2>Overview</h2>
-    <p>
-      여러 시스템에 흩어져 있던 원천 데이터를 수작업으로 취합·가공하던 프로세스를
-      Python과 Power Query 기반 파이프라인으로 자동화하여 업무 처리 시간을 75% 절감한 프로젝트입니다.
-    </p>
-  </div>
-</section>
 
 <section class="body-section alt">
   <div class="wrap">
     <h2>Approach</h2>
     <ul>
-      <li>여러 시스템에 흩어진 원천 데이터를 <strong>Python(Pandas)</strong>으로 수집·정제</li>
-      <li>Power Query로 반복 가공 단계를 자동화한 표준 ETL 프로세스 구축</li>
-      <li>SQL 기반 데이터베이스 연동으로 수작업 입력 단계 제거</li>
-      <li><strong>Power BI 대시보드</strong>로 실적·지표를 실시간 시각화</li>
+      <li>경쟁사/고객사별 YoY 매출증감율·영업이익증감율·수출증감율 데이터 시각화</li>
+      <li>매출/이익 증감 방향성에 따라 기업을 4개 그룹(A~D)으로 분류하는 포지셔닝 매트릭스 설계</li>
+      <li>분기별 필터 및 거래처/잠재고객사 구분 필터 구현</li>
     </ul>
   </div>
 </section>
@@ -141,22 +139,18 @@
     <h2>Result</h2>
     <div class="result-grid">
       <div>
-        <div class="num">75%</div>
-        <div class="desc">업무 처리 시간 절감</div>
+        <div class="num">4 Groups</div>
+        <div class="desc">매출·이익 포지셔닝 매트릭스 (A~D)</div>
       </div>
       <div>
-        <div class="num">실시간</div>
-        <div class="desc">대시보드 도입</div>
+        <div class="num">4Q</div>
+        <div class="desc">분기별 트렌드 데이터 통합</div>
       </div>
       <div>
-        <div class="num">표준화</div>
-        <div class="desc">ETL 파이프라인 구축</div>
+        <div class="num">활용</div>
+        <div class="desc">Sales 포지셔닝 집중 영역 의사결정에 실질적으로 활용</div>
       </div>
     </div>
-    <p style="margin-top:24px;">
-      본 페이지는 샘플 구성입니다. 실제 자료(이미지, 코드 발췌본 등)를 이 페이지에 채워 넣어
-      사용하시면 됩니다.
-    </p>
   </div>
 </section>
 
