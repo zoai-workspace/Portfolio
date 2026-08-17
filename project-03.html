@@ -49,15 +49,16 @@
   .meta-row .item .k{text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
   .meta-row .item .v{color:var(--ink); font-size:13px;}
 
-  .thumb-hero{
-    width:100%; aspect-ratio:16/9; margin-top:40px; border-radius:2px;
-    background:linear-gradient(135deg, #E1E3E6, #EFF0F2);
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--mono); font-size:12px; color:var(--slate);
-    border:1px solid var(--paper-line);
-    overflow:hidden;
+  /* Add 1 or 2 <img> tags inside .thumb-gallery — with one image it fills
+     the full width, with two it splits into a side-by-side pair. */
+  .thumb-gallery{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:16px; margin-top:40px;
   }
-  .thumb-hero img{width:100%; height:100%; object-fit:cover;}
+  .thumb-gallery img{
+    width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-radius:2px;
+    border:1px solid var(--paper-line); display:block; background:var(--paper-alt);
+  }
 
   section.body-section{padding:56px 0; border-top:1px solid var(--paper-line);}
   section.body-section.alt{background:var(--paper-alt);}
@@ -105,7 +106,10 @@
       <div class="item"><div class="k">Period</div><div class="v">2021.05 — 2026.02</div></div>
       <div class="item"><div class="k">Tools</div><div class="v">DCF Valuation · Excel · 사업보고서 작성</div></div>
     </div>
-    <div class="thumb-hero"><img src="images/project-03.svg" alt="DCF 기업가치평가 기반 IPO 준비 샘플 이미지"></div>
+    <div class="thumb-gallery">
+      <img src="images/project_03_1.png" alt="DCF 기업가치평가 기반 IPO 준비 이미지 1">
+      <img src="images/project_03_2.png" alt="DCF 기업가치평가 기반 IPO 준비 이미지 2">
+    </div>
   </div>
 </header>
 
