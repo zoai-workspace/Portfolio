@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>업무 영역별 AI 활용 방안 조사 및 실현 가능성 검증 — 윤생 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;
+    --paper:#F7F7F8;
+    --paper-alt:#EFF0F2;
+    --paper-line:#E1E3E6;
+    --brass:#A9793F;
+    --slate:#5C6470;
+    --serif:'Newsreader', serif;
+    --sans:'Inter', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 40px;}
+
+  .back-bar{padding:28px 0; border-bottom:1px solid var(--paper-line);}
+  .back-bar a{
+    font-family:var(--mono); font-size:12px; color:var(--slate);
+    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  .back-bar a:hover{color:var(--brass);}
+
+  header.detail-hero{padding:64px 0 40px;}
+  .proj-tag{
+    font-family:var(--mono); font-size:11px; color:var(--brass);
+    text-transform:uppercase; letter-spacing:0.06em; margin-bottom:12px;
+  }
+  h1{font-family:var(--serif); font-weight:500; font-size:clamp(28px,4vw,38px); line-height:1.25; max-width:20ch;}
+  .meta-row{
+    display:flex; gap:24px; flex-wrap:wrap; margin-top:24px;
+    font-family:var(--mono); font-size:12px; color:var(--slate);
+  }
+  .meta-row .item .k{text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+  .meta-row .item .v{color:var(--ink); font-size:13px;}
+
+  .hero-overview{margin-top:24px;}
+  .hero-overview h2{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:10px;
+  }
+  .hero-overview p{font-size:15px; color:#33394A; max-width:64ch;}
+
+  .demo-link{
+    display:inline-flex; margin-top:20px; font-family:var(--mono); font-size:12px;
+  }
+  .demo-link a{
+    text-decoration:none; color:var(--ink); border-bottom:1px solid var(--brass);
+  }
+  .demo-link a:hover{color:var(--brass);}
+
+  /* Add 1 or 2 <img> tags inside .thumb-gallery — with one image it fills
+     the full width, with two it splits into a side-by-side pair. */
+  .thumb-gallery{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:16px; margin-top:40px;
+  }
+  .thumb-gallery img{
+    width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-radius:2px;
+    border:1px solid var(--paper-line); display:block; background:var(--paper-alt);
+  }
+
+  section.body-section{padding:56px 0; border-top:1px solid var(--paper-line);}
+  section.body-section.alt{background:var(--paper-alt);}
+  section.body-section h2{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:16px;
+  }
+  section.body-section p{font-size:15px; color:#33394A; margin-bottom:16px; max-width:64ch;}
+  section.body-section ul{list-style:none; margin-top:8px;}
+  section.body-section ul li{
+    position:relative; padding-left:16px; margin-bottom:10px; font-size:14.5px; color:#33394A;
+  }
+  section.body-section ul li::before{content:"—"; position:absolute; left:0; color:var(--slate);}
+  section.body-section ul li strong{color:var(--brass); font-weight:600;}
+
+  .result-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:20px;
+    border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:24px 0; margin-top:8px;
+  }
+  .result-grid .num{font-family:var(--mono); font-size:24px; font-weight:500; color:var(--brass);}
+  .result-grid .desc{font-size:13px; color:var(--slate); margin-top:6px;}
+
+  footer{padding:48px 0; text-align:center;}
+  footer p{font-family:var(--mono); font-size:12px; color:var(--slate);}
+
+  @media (max-width: 620px){
+    .wrap{padding:0 24px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <div class="wrap">
+    <a href="index.html#portfolio">&larr; 포트폴리오로 돌아가기</a>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="wrap">
+    <div class="proj-tag">AI Adoption Feasibility Study</div>
+    <h1>업무 영역별 AI 활용 방안 조사 및 실현 가능성 검증</h1>
+    <div class="meta-row">
+      <div class="item"><div class="k">Role</div><div class="v">경영기획팀 · 대표 직속 · AI 활용 방안 조사</div></div>
+      <div class="item"><div class="k">Period</div><div class="v">2021.05 — 2026.02</div></div>
+      <div class="item"><div class="k">Tools</div><div class="v">ChatGPT · Google Spreadsheet</div></div>
+    </div>
+    <div class="hero-overview">
+      <h2>Overview</h2>
+      <p>
+        영상 제작·챗봇·기업 조사·게임 개발 4개 영역에서 AI 활용 방안을 조사하고 직접 구현,
+        실제 작동하는 게임 등 결과물로 실현 가능성을 입증해 경영진에 AI 활용 확대를 제안한 프로젝트입니다.
+      </p>
+      <div class="demo-link">
+        <a href="https://tangshooting.vercel.app/" target="_blank" rel="noopener">실제 플레이 해보기 →</a>
+      </div>
+    </div>
+    <div class="thumb-gallery">
+      <img src="images/project_04_1.jpg" alt="AI 도구로 구현한 플레이 가능한 게임 화면">
+    </div>
+  </div>
+</header>
+
+<section class="body-section alt">
+  <div class="wrap">
+    <h2>Approach</h2>
+    <ul>
+      <li>업무 영역별 AI 활용 가능성 조사: <strong>영상 제작, 챗봇, 기업 조사·분석, 게임 개발</strong></li>
+      <li>게임 개발 영역에서는 캐릭터 조작, 전투, 스코어/HP/아이템 시스템, 모바일 UI를 포함한 실제 플레이 가능한 게임을 AI 도구만으로 구현 — 비개발자도 기획-구현-디버깅 전 과정 수행 가능함을 검증</li>
+      <li>각 영역별 활용 방안과 결과물을 경영진 보고용 자료로 정리</li>
+    </ul>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="wrap">
+    <h2>Result</h2>
+    <div class="result-grid">
+      <div>
+        <div class="num">4개 영역</div>
+        <div class="desc">AI 도구의 실질적 활용 가능성을 결과물 기반으로 입증</div>
+      </div>
+      <div>
+        <div class="num">확대 제안</div>
+        <div class="desc">조사 및 시연 결과를 바탕으로 경영진에 조직 내 AI 활용 확대 방안 제안</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 · Built for GitHub Pages</p>
+</footer>
+
+</body>
+</html>
