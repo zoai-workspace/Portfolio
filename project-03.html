@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>경쟁사/고객사 실적 분석 — 윤생 포트폴리오</title>
+<title>수주잔고 산출을 위한 계약 관리 데이터베이스 구축 — 윤생 포트폴리오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -41,7 +41,7 @@
     font-family:var(--mono); font-size:11px; color:var(--brass);
     text-transform:uppercase; letter-spacing:0.06em; margin-bottom:12px;
   }
-  h1{font-family:var(--serif); font-weight:500; font-size:clamp(28px,4vw,38px); line-height:1.25; max-width:24ch;}
+  h1{font-family:var(--serif); font-weight:500; font-size:clamp(28px,4vw,38px); line-height:1.25; max-width:20ch;}
   .meta-row{
     display:flex; gap:24px; flex-wrap:wrap; margin-top:24px;
     font-family:var(--mono); font-size:12px; color:var(--slate);
@@ -60,7 +60,7 @@
      the full width, with two it splits into a side-by-side pair. */
   .thumb-gallery{
     display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-    gap:16px; margin-top:32px;
+    gap:16px; margin-top:40px;
   }
   .thumb-gallery img{
     width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-radius:2px;
@@ -106,19 +106,23 @@
 
 <header class="detail-hero">
   <div class="wrap">
-    <div class="proj-tag">Competitive Analysis</div>
-    <h1>경쟁사/고객사 실적 분석</h1>
+    <div class="proj-tag">Relational Database Development</div>
+    <h1>수주잔고 산출을 위한 계약 관리 데이터베이스 구축</h1>
     <div class="meta-row">
-      <div class="item"><div class="k">Role</div><div class="v">경영기획팀 · 대표 직속 · 기업가치평가 및 IPO 실무</div></div>
+      <div class="item"><div class="k">Role</div><div class="v">경영기획팀 · 대표 직속 · 공시 업무 지원</div></div>
       <div class="item"><div class="k">Period</div><div class="v">2021.05 — 2026.02</div></div>
-      <div class="item"><div class="k">Tools</div><div class="v">Power BI</div></div>
+      <div class="item"><div class="k">Tools</div><div class="v">MS Access · VBA · Relational Database Design · SQL Query Design</div></div>
     </div>
     <div class="hero-overview">
       <h2>Overview</h2>
-      <p>경쟁사/고객사 실적 트렌드를 한눈에 파악할 수 있는 인터랙티브 대시보드 구축을 통해 경영진의 Sales 포지셔닝 의사결정을 지원</p>
+      <p>
+        공시자료에 기재하는 수주잔고 산출을 위해 계약 건별 상세 정보(금액, 기간, 상태 등)가 필요했으나,
+        이러한 정보가 체계적으로 기록되지 않아 산출할 때마다 원문서를 일일이 확인해야 했고
+        이로 인한 시간 소요 및 오류 리스크가 존재했습니다.
+      </p>
     </div>
     <div class="thumb-gallery">
-      <img src="images/project_02_1.png" alt="경쟁사/고객사 실적 트렌드 대시보드 — 4분면 포지셔닝 매트릭스">
+      <img src="images/project_03_1.png" alt="계약 관리 관계형 데이터베이스 조회 화면">
     </div>
   </div>
 </header>
@@ -127,9 +131,9 @@
   <div class="wrap">
     <h2>Approach</h2>
     <ul>
-      <li>경쟁사/고객사별 YoY 매출증감율·영업이익증감율·수출증감율 데이터 시각화</li>
-      <li>매출/이익 증감 방향성에 따라 기업을 4개 그룹(A~D)으로 분류하는 포지셔닝 매트릭스 설계</li>
-      <li>분기별 필터 및 거래처/잠재고객사 구분 필터 구현</li>
+      <li>MS Access로 계약(Contract)—계약상세(Contract Detail) 테이블 간 <strong>1:N 관계형 데이터베이스</strong> 설계</li>
+      <li>원계약/부속계약(갱신·변경) 이력을 계약 단위로 연결 관리할 수 있는 구조 구현</li>
+      <li>회사명, 계약유형, 품목, 계약기간 등 조건별 검색 쿼리 및 조회 폼 구축</li>
     </ul>
   </div>
 </section>
@@ -139,16 +143,16 @@
     <h2>Result</h2>
     <div class="result-grid">
       <div>
-        <div class="num">4 Groups</div>
-        <div class="desc">매출·이익 포지셔닝 매트릭스 (A~D)</div>
+        <div class="num">실시간</div>
+        <div class="desc">계약 데이터 조회·집계를 통한 수주잔고 즉시 산출</div>
       </div>
       <div>
-        <div class="num">4Q</div>
-        <div class="desc">분기별 트렌드 데이터 통합</div>
+        <div class="num">자동화</div>
+        <div class="desc">공시자료 작성 시 수작업 집계 프로세스 제거</div>
       </div>
       <div>
-        <div class="num">활용</div>
-        <div class="desc">Sales 포지셔닝 집중 영역 의사결정에 실질적으로 활용</div>
+        <div class="num">정합성 개선</div>
+        <div class="desc">소요시간 단축 및 데이터 정합성 개선</div>
       </div>
     </div>
   </div>
